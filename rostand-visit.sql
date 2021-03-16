@@ -8,11 +8,11 @@ USE rostand-visit;
 
 CREATE TABLE IF NOT EXISTS SPECIALITÉ
  (
-   SPE_ID DB_TEXT, 32 NOT NULL  ,
-   SPE_VIS DB_TEXT, 0 NOT NULL  ,
-   SPE_LIBELLE DB_TEXT, 32 NULL  
-   , PRIMARY KEY (SPE_ID) 
- ) 
+   SPE_ID INT 32 NOT NULL  ,
+   SPE_VIS VARCHAR 0 NOT NULL  ,
+   SPE_LIBELLE VARCHAR 32 NULL
+   , PRIMARY KEY (SPE_ID)
+ )
  comment = "";
 
 # -----------------------------------------------------------------------------
@@ -29,14 +29,14 @@ CREATE  INDEX I_FK_SPECIALITÉ_VISITE
 
 CREATE TABLE IF NOT EXISTS ETUDIANT
  (
-   ETU_ID DB_TEXT, 32 NOT NULL  ,
-   ETU_SEC DB_TEXT, 0 NOT NULL  ,
-   ETU_NOM DB_TEXT, 50 NULL  ,
-   ETU_PRENOM DB_TEXT, 32 NULL  ,
-   ETU_MAIL DB_TEXT, 32 NULL  ,
-   ETU_ETAB DB_TEXT, 32 NULL  
-   , PRIMARY KEY (ETU_ID) 
- ) 
+   ETU_ID INT, 32 NOT NULL  ,
+   ETU_SEC VARCHAR, 0 NOT NULL  ,
+   ETU_NOM VARCHAR, 50 NULL  ,
+   ETU_PRENOM VARCHAR, 32 NULL  ,
+   ETU_MAIL VARCHAR, 32 NULL  ,
+   ETU_ETAB VARCHAR, 32 NULL
+   , PRIMARY KEY (ETU_ID)
+ )
  comment = "";
 
 # -----------------------------------------------------------------------------
@@ -53,11 +53,11 @@ CREATE  INDEX I_FK_ETUDIANT_SECTION
 
 CREATE TABLE IF NOT EXISTS OPTION
  (
-   OPT_ID DB_TEXT, 32 NOT NULL  ,
-   OPT_SEC DB_TEXT, 0 NOT NULL  ,
-   OPT_LIBELLE DB_TEXT, 32 NULL  
-   , PRIMARY KEY (OPT_ID) 
- ) 
+   OPT_ID INT, 32 NOT NULL  ,
+   OPT_SEC VARCHAR, 0 NOT NULL  ,
+   OPT_LIBELLE VARCHAR, 32 NULL
+   , PRIMARY KEY (OPT_ID)
+ )
  comment = "";
 
 # -----------------------------------------------------------------------------
@@ -74,10 +74,10 @@ CREATE  INDEX I_FK_OPTION_SECTION
 
 CREATE TABLE IF NOT EXISTS SECTION
  (
-   SEC_ID DB_TEXT, 0 NOT NULL  ,
-   SEC_LIBELLE DB_TEXT, 32 NULL  
-   , PRIMARY KEY (SEC_ID) 
- ) 
+   SEC_ID INT, 0 NOT NULL  ,
+   SEC_LIBELLE VARCHAR, 32 NULL
+   , PRIMARY KEY (SEC_ID)
+ )
  comment = "";
 
 # -----------------------------------------------------------------------------
@@ -87,9 +87,9 @@ CREATE TABLE IF NOT EXISTS SECTION
 CREATE TABLE IF NOT EXISTS VISITE
  (
    VIS_ID DB_TEXT, 0 NOT NULL  ,
-   VIS_LIEU DB_TEXT, 32 NULL  
-   , PRIMARY KEY (VIS_ID) 
- ) 
+   VIS_LIEU DB_TEXT, 32 NULL
+   , PRIMARY KEY (VIS_ID)
+ )
  comment = "";
 
 # -----------------------------------------------------------------------------
@@ -102,9 +102,9 @@ CREATE TABLE IF NOT EXISTS ENSEIGNANT
    ENS_NOM DB_TEXT, 32 NULL  ,
    ENS_PRENOM DB_TEXT, 32 NULL  ,
    ENS_NOMUTI DB_TEXT, 32 NULL  ,
-   ENS_MDP DB_TEXT, 32 NULL  
-   , PRIMARY KEY (ENS_ID) 
- ) 
+   ENS_MDP DB_TEXT, 32 NULL
+   , PRIMARY KEY (ENS_ID)
+ )
  comment = "";
 
 # -----------------------------------------------------------------------------
@@ -115,9 +115,9 @@ CREATE TABLE IF NOT EXISTS EFFECTUER
  (
    ETU_ID DB_TEXT, 32 NOT NULL  ,
    VIS_ID DB_TEXT, 0 NOT NULL  ,
-   EFF_DATE DB_DATE(8) NULL  
-   , PRIMARY KEY (ETU_ID,VIS_ID) 
- ) 
+   EFF_DATE DB_DATE(8) NULL
+   , PRIMARY KEY (ETU_ID,VIS_ID)
+ )
  comment = "";
 
 # -----------------------------------------------------------------------------
@@ -137,27 +137,26 @@ CREATE  INDEX I_FK_EFFECTUER_VISITE
 # -----------------------------------------------------------------------------
 
 
-ALTER TABLE SPECIALITÉ 
+ALTER TABLE SPECIALITÉ
   ADD FOREIGN KEY FK_SPECIALITÉ_VISITE (SPE_VIS)
       REFERENCES VISITE (VIS_ID) ;
 
 
-ALTER TABLE ETUDIANT 
+ALTER TABLE ETUDIANT
   ADD FOREIGN KEY FK_ETUDIANT_SECTION (ETU_SEC)
       REFERENCES SECTION (SEC_ID) ;
 
 
-ALTER TABLE OPTION 
+ALTER TABLE OPTION
   ADD FOREIGN KEY FK_OPTION_SECTION (OPT_SEC)
       REFERENCES SECTION (SEC_ID) ;
 
 
-ALTER TABLE EFFECTUER 
+ALTER TABLE EFFECTUER
   ADD FOREIGN KEY FK_EFFECTUER_ETUDIANT (ETU_ID)
       REFERENCES ETUDIANT (ETU_ID) ;
 
 
-ALTER TABLE EFFECTUER 
+ALTER TABLE EFFECTUER
   ADD FOREIGN KEY FK_EFFECTUER_VISITE (VIS_ID)
       REFERENCES VISITE (VIS_ID) ;
-
