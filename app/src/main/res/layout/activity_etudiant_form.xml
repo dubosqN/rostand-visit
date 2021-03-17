@@ -7,6 +7,7 @@
     tools:context=".etudiant_form">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,8 +21,8 @@
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"
             android:text="@string/enregistrement"
-            android:textSize="30sp"
             android:textColor="@color/colorAccent"
+            android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -42,10 +43,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/nom"
-                android:hint="@string/nom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppinsmedium"
+                android:hint="@string/nom"
                 tools:targetApi="jelly_bean" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,9 +64,9 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/prenom"
                 android:layout_width="match_parent"
-                android:hint="@string/prenom"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppinsmedium"
+                android:hint="@string/prenom"
                 tools:targetApi="jelly_bean" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,10 +83,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/mail"
-                android:hint="@string/mail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppinsmedium"
+                android:hint="@string/mail"
                 tools:targetApi="jelly_bean" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -100,10 +101,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etablissement"
-                android:hint="@string/etablissement"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppinsmedium"
+                android:hint="@string/etablissement"
                 tools:targetApi="jelly_bean" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -118,10 +119,10 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/section"
-                android:hint="@string/section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppinsmedium"
+                android:hint="@string/section"
                 tools:targetApi="jelly_bean" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -157,5 +158,15 @@
             app:layout_constraintTop_toBottomOf="@+id/buttonSignUp"
             tools:targetApi="jelly_bean" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Spinner
+        android:id="@+id/spinner_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

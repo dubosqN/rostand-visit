@@ -12,4 +12,9 @@
     <string name="connexion">Connexion Prof</string>
     <string name="retour">Retour à "l\'accueil"</string>
     <string name="title_activity_login">Retour à "l\'accueil"</string>
+
+    <string-array name="section_choice">
+        <item>SLAM</item>
+        <item>SISR</item>
+    </string-array>
 </resources>
