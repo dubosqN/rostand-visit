@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">rostand-visit</string>
-    <string name="username">Username</string>
-    <string name="password">Password</string>
+    <string name="username">Nom d"\'utilisateur"</string>
+    <string name="password">Mot de passe</string>
     <string name="login">Connexion</string>
     <string name="enregistrement">Enregistrement</string>
     <string name="nom">Nom</string>
