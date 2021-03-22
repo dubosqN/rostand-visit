@@ -44,7 +44,7 @@ public class Login extends AppCompatActivity {
                 @Override
                 public void onResponse(String response) {
                     if (response.equals("Conn")) {
-                        Intent intent = new Intent(Login.this, MainActivity.class);
+                        Intent intent = new Intent(Login.this, prof_accueil.class);
                         startActivity(intent);
                         finish();
                     } else if (response.equals("Err")) {

@@ -12,6 +12,9 @@
     <string name="connexion">Connexion Prof</string>
     <string name="retour">Retour à "l\'accueil"</string>
     <string name="title_activity_login">Retour à "l\'accueil"</string>
+    <string name="Diplome">Diplome</string>
+    <string name="Option">Option</string>
+    <string name="accueil_prof">Accueil</string>
 
     <string-array name="section_choice">
         <item>SLAM</item>

@@ -137,6 +137,7 @@
 
         <Spinner
             android:id="@+id/spinner_specialites"
+            android:fontFamily="@font/poppinsmedium"
             android:theme="@style/AppTheme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -149,6 +150,7 @@
 
         <Spinner
             android:id="@+id/spinner_options"
+            android:fontFamily="@font/poppinsmedium"
             android:theme="@style/AppTheme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

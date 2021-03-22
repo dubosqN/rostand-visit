@@ -125,7 +125,7 @@ public class etudiant_form extends AppCompatActivity implements AdapterView.OnIt
                     try {
                         JSONArray jsonArray = response.getJSONArray("options");
                         optionsMap.clear();
-                        for (int i = 0; i<jsonArray.length(); i++){
+                        for (int i = 0; i < jsonArray.length(); i++){
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
                             String optionsLibelle = jsonObject.optString("option_libelle");
                             String optionId = jsonObject.optString("option_id");
