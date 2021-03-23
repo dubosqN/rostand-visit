@@ -255,7 +255,6 @@ public class etudiant_form extends AppCompatActivity implements AdapterView.OnIt
         nom = textInputEditTextNom.getText().toString().trim();
         prenom = textInputEditTextPrenom.getText().toString().trim();
         mail = textInputEditTextMail.getText().toString().trim();
-        etablissement = textInputEditTextEtablissement.getText().toString().trim();
 
         if(!nom.equals("") && !prenom.equals("") && !mail.equals("")){
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url_add, new Response.Listener<String>() {
