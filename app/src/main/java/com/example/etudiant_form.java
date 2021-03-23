@@ -35,24 +35,31 @@ public class etudiant_form extends AppCompatActivity implements AdapterView.OnIt
 
     TextInputEditText textInputEditTextNom, textInputEditTextPrenom, textInputEditTextMail, textInputEditTextEtablissement, textInputEditTextSection;
     String nom, prenom, mail, etablissement, section, specialite;
-    //String specialite;
     Button buttonSignUp;
     TextView textViewLogin;
     ProgressBar progressBar;
 
 
 
-    Spinner spinnerSpecialites, spinnerOptions;
+    Spinner spinnerSpecialites, spinnerOptions, spinnerEtablissement, spinnerSection;
+
     ArrayList<String> specialitesList = new ArrayList<>();
     ArrayList<String> optionsList = new ArrayList<>();
+    ArrayList<String> etablissementList = new ArrayList<>();
+    ArrayList<String> sectionList = new ArrayList<>();
 
     ArrayAdapter<String> specialitesAdapter;
     ArrayAdapter<String> optionsAdapter;
+    ArrayAdapter<String> etablissementAdapter;
+    ArrayAdapter<String> sectionAdapter;
 
     Map<String, String> optionsMap = new HashMap<String, String>();
+    Map<String, String> etablissementMap = new HashMap<String, String>();
+    Map<String, String> sectionMap = new HashMap<String, String>();
 
     RequestQueue requestQueue;
-    String url_add = "http://192.168.0.22/android/rostand-visit/add_etudiant.php";
+    //String url_add = "http://192.168.0.22/rostand-visit/add_etudiant.php";
+    String url_add = "http://172.30.31.1/rostand-visit/add_etudiant.php";
 
 
 
@@ -65,7 +72,6 @@ public class etudiant_form extends AppCompatActivity implements AdapterView.OnIt
         textInputEditTextPrenom = findViewById(R.id.prenom);
         textInputEditTextMail = findViewById(R.id.username_login);
         textInputEditTextEtablissement = findViewById(R.id.password_login);
-        textInputEditTextSection = findViewById(R.id.section);
 
         buttonSignUp = findViewById(R.id.buttonSignUp);
         textViewLogin = findViewById(R.id.loginText);
@@ -74,9 +80,12 @@ public class etudiant_form extends AppCompatActivity implements AdapterView.OnIt
         requestQueue = Volley.newRequestQueue(this);
         spinnerSpecialites = findViewById(R.id.spinner_specialites);
         spinnerOptions = findViewById(R.id.spinner_options);
+        spinnerEtablissement = findViewById(R.id.spinner_etablissement);
+        spinnerSection = findViewById(R.id.spinner_section);
 
 
-        String url = "http://192.168.0.22/android/rostand-visit/specialite.php";
+        //String url = "http://192.168.0.22/android/rostand-visit/specialite.php";
+        String url = "http://172.30.31.1/rostand-visit/specialite.php";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
                 url, null, new Response.Listener<JSONObject>() {
@@ -108,6 +117,78 @@ public class etudiant_form extends AppCompatActivity implements AdapterView.OnIt
         requestQueue.add(jsonObjectRequest);
         spinnerSpecialites.setOnItemSelectedListener(this);
         spinnerOptions.setOnItemSelectedListener(this);
+
+        String url_section = "http://172.30.31.1/rostand-visit/select_section.php";
+
+        JsonObjectRequest jsonObjectRequest_section = new JsonObjectRequest(Request.Method.POST,
+                url_section, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    sectionMap.clear();
+                    JSONArray jsonArray = response.getJSONArray("sections");
+                    for (int i = 0; i<jsonArray.length(); i++){
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        String specialiteLibelle = jsonObject.optString("sections_libelle");
+                        String sectionsId = jsonObject.optString("sections_id");
+
+                        sectionMap.put(specialiteLibelle, sectionsId);
+                        sectionList.add(specialiteLibelle);
+                        sectionAdapter = new ArrayAdapter<>(etudiant_form.this,
+                                android.R.layout.simple_spinner_item, sectionList);
+                        sectionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+                        spinnerSection.setAdapter(sectionAdapter);
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        requestQueue.add(jsonObjectRequest_section);
+        spinnerSection.setOnItemSelectedListener(this);
+
+        String url_etablissement = "http://172.30.31.1/rostand-visit/select_etablissement.php";
+
+        JsonObjectRequest jsonObjectRequest_etablissement = new JsonObjectRequest(Request.Method.POST,
+                url_etablissement, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    etablissementMap.clear();
+                    JSONArray jsonArray = response.getJSONArray("etablissements");
+                    for (int i = 0; i<jsonArray.length(); i++){
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        String etablissementLibelle = jsonObject.optString("etablissement_libelle");
+                        String etablissementId = jsonObject.optString("etablissement_id");
+
+                        etablissementMap.put(etablissementLibelle, etablissementId);
+                        etablissementList.add(etablissementLibelle);
+                        etablissementAdapter = new ArrayAdapter<>(etudiant_form.this,
+                                android.R.layout.simple_spinner_item, etablissementList);
+                        etablissementAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+                        spinnerEtablissement.setAdapter(etablissementAdapter);
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        requestQueue.add(jsonObjectRequest_etablissement);
+        spinnerEtablissement.setOnItemSelectedListener(this);
     }
 
 
@@ -116,7 +197,8 @@ public class etudiant_form extends AppCompatActivity implements AdapterView.OnIt
         if(adapterView.getId() == R.id.spinner_specialites){
             optionsList.clear();
             String selectedSpecialites = adapterView.getSelectedItem().toString();
-            String url = "http://192.168.0.22/android/rostand-visit/option.php?specialite_libelle="+ selectedSpecialites;
+            String url = "http://172.30.31.1/rostand-visit/option.php?specialite_libelle="+ selectedSpecialites;
+            //String url = "http://192.168.0.22/android/rostand-visit/option.php?specialite_libelle="+ selectedSpecialites;
             requestQueue = Volley.newRequestQueue(this);
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
                     url, null, new Response.Listener<JSONObject>() {
@@ -150,7 +232,17 @@ public class etudiant_form extends AppCompatActivity implements AdapterView.OnIt
         }
 
         if(adapterView.getId() == R.id.spinner_options){
-            specialite = optionsMap.get(adapterView.getSelectedItem().toString());;
+            specialite = optionsMap.get(adapterView.getSelectedItem().toString());
+        }
+
+        if(adapterView.getId() == R.id.spinner_section){
+
+            section = sectionMap.get(adapterView.getSelectedItem().toString());
+        }
+
+        if(adapterView.getId() == R.id.spinner_etablissement){
+
+            etablissement = etablissementMap.get(adapterView.getSelectedItem().toString());
         }
     }
 
@@ -164,10 +256,8 @@ public class etudiant_form extends AppCompatActivity implements AdapterView.OnIt
         prenom = textInputEditTextPrenom.getText().toString().trim();
         mail = textInputEditTextMail.getText().toString().trim();
         etablissement = textInputEditTextEtablissement.getText().toString().trim();
-        section = textInputEditTextSection.getText().toString().trim();
-        //specialite
 
-        if(!nom.equals("") && !prenom.equals("") && !mail.equals("") && !section.equals("")){
+        if(!nom.equals("") && !prenom.equals("") && !mail.equals("")){
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url_add, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -186,6 +276,7 @@ public class etudiant_form extends AppCompatActivity implements AdapterView.OnIt
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
                     StringFormatter formatter = new StringFormatter();
+
                     Map<String, String> data = new HashMap<>();
                     data.put("nom", nom);
                     data.put("prenom", prenom);
