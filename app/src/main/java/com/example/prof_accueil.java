@@ -1,20 +1,17 @@
 package com.example;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
+
 import android.os.Bundle;
-import android.view.LayoutInflater;
+
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
+
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -28,21 +25,20 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 
 import static com.example.R.layout.single_item;
 
 public class prof_accueil extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+
     String id, nom, prenom, mail, etablissement, section , visite, specialite;
 
     //private static String url = "http://192.168.0.22/android/rostand-visit/select_etudiants.php";
     String url = "http://172.30.31.1/rostand-visit/select_etudiants.php";
 
-    ListView lvEtudiant = findViewById(R.id.lvEtudiant);
+    //ListView lvEtudiant = findViewById(R.id.lvEtudiant);
+    private static final String TAG = "---------------------------- Prof Accueil ----------------------------";
+
 
     ArrayList<String> etudiantsList = new ArrayList<>();
     ArrayAdapter etudiantsAdapter;
@@ -62,15 +58,42 @@ public class prof_accueil extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    JSONArray jsonArray = response.getJSONArray("specialites");
+                    JSONArray jsonArray = response.getJSONArray("etudiants");
                     for (int i = 0; i<jsonArray.length(); i++){
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        String specialiteLibelle = jsonObject.optString("specialite_libelle");
-                        etudiantsList.add(specialiteLibelle);
-                        etudiantsAdapter = new ArrayAdapter<>(prof_accueil.this,
+
+                        String id = jsonObject.optString("etudiant_id");
+                        etudiantsList.add(id);
+
+                        String nom = jsonObject.optString("etudiant_nom");
+                        etudiantsList.add(nom);
+
+                        String prenom = jsonObject.optString("etudiant_prenom");
+                        etudiantsList.add(prenom);
+
+                        String mail = jsonObject.optString("etudiant_mail");
+                        etudiantsList.add(mail);
+
+                        String etablissement = jsonObject.optString("etudiant_etablissement");
+                        etudiantsList.add(etablissement);
+
+                        String section = jsonObject.optString("etudiant_section");
+                        etudiantsList.add(section);
+
+                        String visite = jsonObject.optString("etudiant_visite");
+                        etudiantsList.add(visite);
+
+                        String specialite = jsonObject.optString("etudiant_specialite");
+                        etudiantsList.add(specialite);
+
+                        Log.d(TAG, "onCreate: " + etudiantsList);
+
+
+
+/*                        etudiantsAdapter = new ArrayAdapter<>(prof_accueil.this,
                                 android.R.layout.simple_list_item_1, etudiantsList);
-                        etudiantsAdapter.setDropDownViewResource(android.R.layout.activity_list_item);
-                        lvEtudiant.setAdapter(etudiantsAdapter);
+                        etudiantsAdapter.setDropDownViewResource(android.R.layout.activity_list_item);*/
+                        //lvEtudiant.setAdapter(etudiantsAdapter);
                     }
 
                 } catch (JSONException e) {
@@ -85,7 +108,8 @@ public class prof_accueil extends AppCompatActivity implements AdapterView.OnIte
             }
         });
         requestQueue.add(jsonObjectRequest);
-        lvEtudiant.setOnItemSelectedListener(this);
+        Log.d(TAG, "onCreate: " + etudiantsList);
+        //lvEtudiant.setOnItemSelectedListener(this);
     }
 
     @Override
@@ -98,9 +122,4 @@ public class prof_accueil extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
-    public void garde(View view){
-        Intent intent = new Intent(this, garde.class);
-        startActivity(intent);
-        finish();
-    }
 }

@@ -28,7 +28,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".prof_accueil" />
+        <activity android:name=".prof_accueil"
+            android:theme="@style/Theme.Design.Light.NoActionBar"
+            />
         <activity
             android:name=".etudiant_form"
             android:theme="@style/Theme.Design.Light.NoActionBar">
