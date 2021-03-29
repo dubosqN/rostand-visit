@@ -1,5 +1,7 @@
 <?php
 require_once "conn.php";
+$annee = $_POST['etudiant_annee'];
+
 $sql = "SELECT
        etudiant.id,
        etudiant.nom,
@@ -19,7 +21,9 @@ WHERE
 AND
       etudiant.option_specialite_id = option_specialite.id
 AND
-      etudiant.section_id = section.id;";
+      etudiant.section_id = section.id
+
+AND   YEAR(visite.date_visite) = '$annee'";
 
 if(!$conn->query($sql)){
     echo 'Db error';
@@ -33,7 +37,7 @@ else{
                 'etudiant_id' => $row['id'],
                 'etudiant_nom' => $row['nom'],
                 'etudiant_prenom' => $row['prenom'],
-                'etudiant_mail' => $row['id'],
+                'etudiant_mail' => $row['mail'],
                 'etudiant_etablissement' => $row['etablissement'],
                 'etudiant_visite' => $row['visite'],
                 'etudiant_section' => $row['section'],
