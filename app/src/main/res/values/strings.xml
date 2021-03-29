@@ -15,6 +15,7 @@
     <string name="Diplome">Diplome</string>
     <string name="Option">Option</string>
     <string name="accueil_prof">Accueil</string>
+    <string name="progress_detail">Patientez...</string>
 
     <string-array name="section_choice">
         <item>SLAM</item>

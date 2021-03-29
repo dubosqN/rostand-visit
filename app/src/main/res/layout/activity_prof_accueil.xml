@@ -10,7 +10,9 @@
         android:id="@+id/accueil_prof"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
         android:fontFamily="@font/poppinsbold"
         android:gravity="center"
         android:text="@string/accueil_prof"
@@ -31,14 +33,46 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         app:layout_constraintTop_toBottomOf="@+id/accueil_prof"
-        />
+        />-->
+
+
+    <EditText
+        android:id="@+id/etAnnee"
+        android:theme="@style/AppTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="30dp"
+        android:hint="année"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/lvEtudiant"
+        app:layout_constraintTop_toBottomOf="@id/accueil_prof" />
+
+    <Button
+        android:id="@+id/btnfetch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:text="Rechercher"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etAnnee" />
 
     <ListView
         android:id="@+id/lvEtudiant"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="102dp"
-        tools:layout_editor_absoluteY="205dp"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_annee"/>-->
+        android:layout_width="413dp"
+        android:layout_height="494dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnfetch">
+
+    </ListView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

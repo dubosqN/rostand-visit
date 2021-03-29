@@ -24,8 +24,8 @@ public class Login extends AppCompatActivity {
 
     private TextInputEditText textInputEditTextUsername, textInputEditTextPassword;
     private String username, password;
-    //private String URL = "http://192.168.0.22/android/rostand-visit/login.php";
-    private String URL = "http://172.30.31.1/rostand-visit/login.php";
+    private String URL = "http://192.168.0.22/android/rostand-visit/login.php";
+    //private String URL = "http://172.30.31.1/rostand-visit/login.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
