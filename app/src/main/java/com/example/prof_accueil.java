@@ -33,8 +33,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class prof_accueil extends AppCompatActivity {
-    //private static String url = "http://192.168.0.22/android/rostand-visit/select_etudiants.php";
-    private static String url = "http://172.30.31.1/rostand-visit/select_etudiants.php";
 
     TextView nbEtudiants;
     EditText editTextannee, editTextDiplome;
@@ -92,7 +90,7 @@ public class prof_accueil extends AppCompatActivity {
         mProgressDialog.setProgressPercentFormat(null);
         mProgressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, ConfigUrl.KEY_URL_SELECT_ETUDIANTS,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

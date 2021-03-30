@@ -58,10 +58,6 @@ public class etudiant_form extends AppCompatActivity implements AdapterView.OnIt
     Map<String, String> sectionMap = new HashMap<String, String>();
 
     RequestQueue requestQueue;
-    //String url_add = "http://192.168.0.22/rostand-visit/add_etudiant.php";
-    String url_add = "http://172.30.31.1/rostand-visit/add_etudiant.php";
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,11 +80,8 @@ public class etudiant_form extends AppCompatActivity implements AdapterView.OnIt
         spinnerSection = findViewById(R.id.spinner_section);
 
 
-        //String url = "http://192.168.0.22/android/rostand-visit/specialite.php";
-        String url = "http://172.30.31.1/rostand-visit/specialite.php";
-
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
-                url, null, new Response.Listener<JSONObject>() {
+                ConfigUrl.KEY_URL_SPECIALITE, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
@@ -118,10 +111,8 @@ public class etudiant_form extends AppCompatActivity implements AdapterView.OnIt
         spinnerSpecialites.setOnItemSelectedListener(this);
         spinnerOptions.setOnItemSelectedListener(this);
 
-        String url_section = "http://172.30.31.1/rostand-visit/select_section.php";
-
         JsonObjectRequest jsonObjectRequest_section = new JsonObjectRequest(Request.Method.POST,
-                url_section, null, new Response.Listener<JSONObject>() {
+                ConfigUrl.KEY_URL_SECTION, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
@@ -154,10 +145,8 @@ public class etudiant_form extends AppCompatActivity implements AdapterView.OnIt
         requestQueue.add(jsonObjectRequest_section);
         spinnerSection.setOnItemSelectedListener(this);
 
-        String url_etablissement = "http://172.30.31.1/rostand-visit/select_etablissement.php";
-
         JsonObjectRequest jsonObjectRequest_etablissement = new JsonObjectRequest(Request.Method.POST,
-                url_etablissement, null, new Response.Listener<JSONObject>() {
+                ConfigUrl.KEY_URL_ETABLISSEMENT, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
@@ -197,11 +186,10 @@ public class etudiant_form extends AppCompatActivity implements AdapterView.OnIt
         if(adapterView.getId() == R.id.spinner_specialites){
             optionsList.clear();
             String selectedSpecialites = adapterView.getSelectedItem().toString();
-            String url = "http://172.30.31.1/rostand-visit/option.php?specialite_libelle="+ selectedSpecialites;
-            //String url = "http://192.168.0.22/android/rostand-visit/option.php?specialite_libelle="+ selectedSpecialites;
+
             requestQueue = Volley.newRequestQueue(this);
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
-                    url, null, new Response.Listener<JSONObject>() {
+                    ConfigUrl.KEY_URL_OPTION_LIBELLE+selectedSpecialites, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
                     try {
@@ -257,7 +245,7 @@ public class etudiant_form extends AppCompatActivity implements AdapterView.OnIt
         mail = textInputEditTextMail.getText().toString().trim();
 
         if(!nom.equals("") && !prenom.equals("") && !mail.equals("")){
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, url_add, new Response.Listener<String>() {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, ConfigUrl.KEY_URL_ADD_ETUDIANT, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     if (response.equals("success")) {

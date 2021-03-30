@@ -24,8 +24,7 @@ public class Login extends AppCompatActivity {
 
     private TextInputEditText textInputEditTextUsername, textInputEditTextPassword;
     private String username, password;
-    //private String URL = "http://192.168.0.22/android/rostand-visit/login.php";
-    private String URL = "http://172.30.31.1/rostand-visit/login.php";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +39,7 @@ public class Login extends AppCompatActivity {
         password = Objects.requireNonNull(textInputEditTextPassword.getText()).toString().trim();
 
         if(!username.equals("") && !password.equals("")){
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, ConfigUrl.KEY_URL_LOGIN, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     if (response.equals("Conn")) {
