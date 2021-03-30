@@ -58,8 +58,8 @@ public class etudiant_form extends AppCompatActivity implements AdapterView.OnIt
     Map<String, String> sectionMap = new HashMap<String, String>();
 
     RequestQueue requestQueue;
-    String url_add = "http://192.168.0.22/rostand-visit/add_etudiant.php";
-    //String url_add = "http://172.30.31.1/rostand-visit/add_etudiant.php";
+    //String url_add = "http://192.168.0.22/rostand-visit/add_etudiant.php";
+    String url_add = "http://172.30.31.1/rostand-visit/add_etudiant.php";
 
 
 
@@ -84,8 +84,8 @@ public class etudiant_form extends AppCompatActivity implements AdapterView.OnIt
         spinnerSection = findViewById(R.id.spinner_section);
 
 
-        String url = "http://192.168.0.22/android/rostand-visit/specialite.php";
-        //String url = "http://172.30.31.1/rostand-visit/specialite.php";
+        //String url = "http://192.168.0.22/android/rostand-visit/specialite.php";
+        String url = "http://172.30.31.1/rostand-visit/specialite.php";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
                 url, null, new Response.Listener<JSONObject>() {
@@ -197,8 +197,8 @@ public class etudiant_form extends AppCompatActivity implements AdapterView.OnIt
         if(adapterView.getId() == R.id.spinner_specialites){
             optionsList.clear();
             String selectedSpecialites = adapterView.getSelectedItem().toString();
-            //String url = "http://172.30.31.1/rostand-visit/option.php?specialite_libelle="+ selectedSpecialites;
-            String url = "http://192.168.0.22/android/rostand-visit/option.php?specialite_libelle="+ selectedSpecialites;
+            String url = "http://172.30.31.1/rostand-visit/option.php?specialite_libelle="+ selectedSpecialites;
+            //String url = "http://192.168.0.22/android/rostand-visit/option.php?specialite_libelle="+ selectedSpecialites;
             requestQueue = Volley.newRequestQueue(this);
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
                     url, null, new Response.Listener<JSONObject>() {

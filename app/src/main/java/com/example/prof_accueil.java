@@ -1,14 +1,17 @@
 package com.example;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,33 +33,38 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class prof_accueil extends AppCompatActivity {
-    EditText editTextannee;
+    //private static String url = "http://192.168.0.22/android/rostand-visit/select_etudiants.php";
+    private static String url = "http://172.30.31.1/rostand-visit/select_etudiants.php";
+
+    TextView nbEtudiants;
+    EditText editTextannee, editTextDiplome;
     Button buttonfetch;
-
     ListView lvEtudiant;
-    //année
     String annee;
-    String id, nom, prenom, mail, etablissement, section , visite, specialite;
+    String id, nom, prenom, mail, etablissement, diplome, visite, specialite;
     ProgressDialog mProgressDialog;
-    private static String url = "http://192.168.0.22/android/rostand-visit/select_etudiants.php";
 
-    public static final String KEY_NAME = "name";
-    public static final String KEY_CITY = "city";
-    public static final String KEY_COUNTRY = "country";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prof_accueil);
 
-        editTextannee = (EditText)findViewById(R.id.etAnnee);
-        buttonfetch = (Button)findViewById(R.id.btnfetch);
+        editTextannee = findViewById(R.id.etAnnee);
+        editTextDiplome = findViewById(R.id.etDiplome);
+        buttonfetch = findViewById(R.id.btnfetch);
         lvEtudiant = findViewById(R.id.lvEtudiant);
+        nbEtudiants = findViewById(R.id.accueil_prof_nb_etu);
         buttonfetch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 annee = editTextannee.getText().toString().trim();
+                diplome = editTextDiplome.getText().toString().trim();
+
+                InputMethodManager imm = (InputMethodManager)getSystemService(prof_accueil.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(editTextannee.getWindowToken(), 0);
 
                 if (annee.equals("")){
                     Toast.makeText(prof_accueil.this, "Entrez une année.", Toast.LENGTH_SHORT).show();
@@ -72,6 +80,7 @@ public class prof_accueil extends AppCompatActivity {
     private void GetMatchData() {
 
         annee = editTextannee.getText().toString().trim();
+        diplome = editTextDiplome.getText().toString().trim();
 
         mProgressDialog = new ProgressDialog(prof_accueil.this);
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
@@ -105,12 +114,14 @@ public class prof_accueil extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(prof_accueil.this, ""+error, Toast.LENGTH_LONG).show();
+                        mProgressDialog.dismiss();
                     }
                 }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<String, String>();
                 map.put("etudiant_annee", annee);
+                map.put("etudiant_diplome", diplome);
                 return map;
             }
         };
@@ -153,10 +164,12 @@ public class prof_accueil extends AppCompatActivity {
                 list.add(etudiants);
 
             }
-
+            Log.d("Nb", "Nombre " + list.size());
+            nbEtudiants.setText("Résultat de la recherche: " + list.size() + " étudiant(e)s.");
 
         } catch (JSONException e) {
             e.printStackTrace();
+            nbEtudiants.setText("Vérifiez vos critères de recherche...");
         }
         ListAdapter adapter = new SimpleAdapter(
                 prof_accueil.this, list, R.layout.single_item,
@@ -166,6 +179,19 @@ public class prof_accueil extends AppCompatActivity {
         lvEtudiant.setAdapter(adapter);
 
     }
+
+    public void logout(View view){
+        Intent intent = new Intent(this, garde.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void profile(View view){
+        Intent intent = new Intent(this, update_password.class);
+        startActivity(intent);
+        finish();
+    }
+
 
 
 }

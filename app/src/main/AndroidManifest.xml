@@ -14,11 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".update_password"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
+        </activity>
+
         <activity
             android:name=".rgpd"
-            android:theme="@style/Theme.Design.Light.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.Design.Light.NoActionBar"></activity>
         <activity
             android:name=".garde"
             android:theme="@style/Theme.Design.Light.NoActionBar">
@@ -28,9 +30,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".prof_accueil"
+        <activity
+            android:name=".prof_accueil"
             android:theme="@style/Theme.Design.Light.NoActionBar"
-            />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".etudiant_form"
             android:theme="@style/Theme.Design.Light.NoActionBar">
