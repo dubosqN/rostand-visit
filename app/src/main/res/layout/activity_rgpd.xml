@@ -1,59 +1,247 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:srcCompat="@drawable/logo"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="227dp"
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="210dp"
-        android:text="fytfj"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="227dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Règlement Intérieur du Lycée Jean-Rostand \n\n
+
+« Toute personne a droit à ce que règne un ordre tel que les droits et les libertés de chacun puissent prendre plein effet.
+L’individu a des droits envers la communauté dans laquelle seul le libre et plein développement de sa personnalité est
+possible. » Déclaration des Droits de l’homme, O.N.U, 10 décembre 1948.\n\n
+Le présent règlement engage les élèves, les étudiants, les parents et l’ensemble du personnel du Lycée Jean-Rostand,
+Etablissement Public Local d’Enseignement, régi par le décret 85-924 du 30 août 1985.\n\n
+Le lycée est un lieu d’instruction, de formation, d’éducation et de qualification. Il a pour ambition d’offrir les meilleures
+conditions de travail pour la réussite de tous. Toutes les activités organisées par l’établissement le sont conformément aux
+textes légaux et réglementaires actuellement en vigueur et se déroulent selon les principes de la laïcité et du respect des
+personnes et des biens.\n\n
+Dans ce cadre général les élèves et les étudiants disposent de droits et d’obligations pour promouvoir leur autonomie et leur
+sens des responsabilités.\n\n
+Titre 1 : les droits des élèves et des étudiants.\n\n
+1.1- Droit de bénéficier d’un enseignement de qualité.\n\n
+Tous doivent bénéficier d’une formation de nature à les conduire à leur meilleur niveau.
+1.2- Droit d’être écoutés et conseillés.\n\n
+Dans toute situation difficile, les élèves peuvent compter sur les adultes de l’établissement.
+ 1.3- Droit d’évoluer dans un cadre de vie et de travail satisfaisant.\n\n
+Les élèves doivent pouvoir évoluer dans un environnement favorable à leur épanouissement et à la réussite de leurs études.
+ 1.4- Droit de s’exprimer.\n\n
+Les élèves et les étudiants ont le droit d’exprimer leur opinion, individuellement et collectivement , dans un esprit de tolérance
+et de respect d’autrui. Collectivement, ce droit s’exerce par l’intermédiaire des délégués de classe, des instances représentatives
+et des associations.\n\n
+1.5- Droit d’être représenté.\n\n
+Les élèves doivent pouvoir profiter pleinement des instances représentatives de l’établissement : Assemblée Générale des
+Délégués , Conseil de la Vie Lycéenne , Conseil d’Administration. Les délégués, pour pleinement jouer leur rôle, bénéficient
+d’une formation dispensée par l’établissement.\n\n
+1.6- Droit de se réunir.\n\n
+Ce droit s’exerce dans le respect des grands principes énoncés précédemment et en dehors des heures de cours inscrites à
+l’emploi du temps. Les représentants des élèves au Conseil d’Administration, les membres du Conseil de la Vie Lycéenne (CVL),
+ainsi que les délégués de classe peuvent prendre l’initiative d’une réunion pour une information concernant le fonctionnement
+du lycée ou de la classe : ils en informent le Chef d’établissement.\n\n
+ 1.7- Droit de publier.\n\n
+Tout groupe d’élèves le souhaitant peut publier un document ou un journal, créer un site ou un blog, sous réserve de le faire
+conformément à la circulaire du 6 mars 1991 précisant les conditions d’exercice de ce droit, les règles à respecter, les
+responsabilités encourues et le rôle du Chef d’établissement.
+ 1.8- Droit de créer des associations\n\n
+A condition d’être majeurs, les élèves peuvent créer, à l’intérieur de l’établissement, des associations déclarées conformément
+à la loi du 1er juillet 1901. Le fonctionnement et la domiciliation dans l’établissement devront faire l’objet d’un accord du Conseil
+d’Administration. Le Proviseur et le Conseil d’Administration devront être tenus informés du programme et des modalités de
+fonctionnement de ces associations auxquelles des adultes membres de la communauté éducative du lycée peuvent participer.
+Titre 2 : les obligations des élèves et des étudiants.\n\n
+2.1- Obligation d’être assidu et ponctuel\n\n
+La présence à tous les cours est obligatoire (code de l’éducation article 131.1), il en va de même pour les options facultatives,
+dès lors que l’élève y est inscrit. Un élève qui ne respecte pas cette obligation d’assiduité s’expose à l’engagement d’une
+procédure disciplinaire.\n\n
+2.2- Obligation de travailler et de se soumettre aux évaluations.\n\n
+Les élèves doivent accomplir les travaux écrits et oraux qui leur sont demandés par les enseignants et se soumettre aux
+modalités de contrôle des connaissances. Tout contrôle non fait sans justification valable sera intégré dans le calcul de la
+moyenne. Les travaux faits à la maison doivent être remis au professeur à la date indiquée.\n\n
+2.3- Obligation de respecter les personnes et les biens.\n\n
+Les élèves doivent manifester une attitude respectueuse tant envers le personnel de l’établissement qu’envers les autres
+lycéens. Ils ne doivent en aucun cas faire usage de violence verbale ou physique.\n\n
+Une tenue décente est exigée. Les élèves doivent également veiller à la préservation et à la propreté du matériel, du mobilier
+et des locaux qui constituent leur bien collectif. En cas de dégradation, un remboursement pourra être demandé.
+Le respect des équipements de sécurité est impératif, leur dégradation volontaire peut s’avérer lourde de conséquences et
+constitue une faute grave.\n\n
+2.4- Obligation de respecter les principes de laïcité.\n\n
+Conformément aux dispositions de l’article L-141-5-1 du code de l’éducation, les élèves ne doivent porter aucun signe
+d’appartenance religieuse ou politique dont le caractère ostentatoire ou revendicatif constituerait un acte de pression, de
+provocation ou de prosélytisme. Lorsqu’un élève ne respecte pas cette interdiction, le chef d’établissement organise, en
+concertation avec l’équipe pédagogique , un dialogue avec cet élève avant tout engagement de procédure disciplinaire.\n\n
+2.5- Obligation d’être en possession du matériel ou de la tenue exigée compte tenu de l’activité pratiquée.\n\n
+ 2.6- Obligation de se soumettre aux contrôles et examens de santé et d’être à jour des vaccinations.\n\n
+ 2.7- Obligation de respecter la Charte Internet.\n\n
+2.8- Tout manquement grave au R.I. de l’internat et de la demi-pension sera sanctionné par des mesures relevant du
+titre 5.\n\n
+2.9- En DCG, aucun redoublement n’est autorisé en 1° et 2° année. \n\nLe passage de l’étudiant en année supérieure est
+prononcé par le chef d’établissement sur avis du Conseil de classe. Le stage en entreprise est obligatoire.\n\n
+Titre 3 : Vie et fonctionnement général de l’établissement.\n\n
+3.1- Horaires : le lycée Jean-Rostand est ouvert du lundi au vendredi de 08H00 à 18H00.\n\n
+M1 8H15 9H10 S1 13H05 14H00\n
+M2 9H10 10H05 S2 14H00 14H55\n
+M3 10H20 11H15 S3 14H55 15H50\n
+M4 11H15 12H10 S4 16H05 17H00\n
+M5 12H10 13H05 S5 17H00 17H55\n \n
+3.2- Internat et demi-pension.\n\n
+Un élève est inscrit pour l’année scolaire en qualité d’externe, de demi-pensionnaire ou d’interne.\n
+Les changements de régime en cours d’année sont exceptionnels et s’effectuent à la fin de chaque trimestre.\n
+Le fonctionnement de la demi-pension et celui de l’internat font l’objet d’annexes au présent règlement.\n\n
+3.3- Suivi des élèves.\n\n
+Les Conseillers Principaux d’Education règlent les problèmes généraux et particuliers en liaison avec les proviseurs, les
+professeurs principaux et le personnel concerné. Des Conseillers d’Orientation-Psychologues assurent une permanence au CDI
+certains jours de la semaine (prendre rendez-vous au bureau de la Vie Scolaire).\n\n
+3.4- Service Médico-social.\n\n
+Une infirmière accueille les élèves souffrants. La prise de médicaments, pendant la présence de l’élève au lycée, doit se faire
+à l’infirmerie où ordonnances et médicaments sont déposés.\n\n
+En cas de besoin, l’infirmière prend contact avec la famille à qui revient la prise en charge de son enfant.
+En cas d’urgence, l’établissement procède à l’évacuation de l’élève par les services de secours habilités. Le coût du transport
+ou de l’acte médical étant à la charge de la famille, il est conseillé de prendre une assurance couvrant ces frais.
+Aucun élève souffrant ne doit quitter l’établissement sans passer par l’Infirmerie et la Vie Scolaire est toujours tenue informée
+de la situation.\n\n
+Une assistante sociale est présente certains jours de la semaine pour recevoir les élèves et leur famille. Elle instruit les
+demandes d’aide financière présentées au Fonds Social Lycéen. En son absence, les rendez-vous sont pris à la Vie Scolaire.
+3.5- Evaluation et conseil de classe.\n\n
+Un bulletin trimestriel ou semestriel, synthèse des résultats du travail de l'élève, est adressé directement aux parents ou
+responsables. Sur ce bulletin, sont portées l'appréciation de chaque professeur et une appréciation générale. Le conseil de
+classe peut décerner des félicitations, des encouragements ou encore prononcer une mise en garde. Ce document officiel sert
+à l’orientation de l’élève et alimente le livret scolaire du Baccalauréat.\n\n
+
+3.6- Sorties à caractère pédagogique.\n\n
+En application des circulaires n°96-248 et n°01-008 des sorties individuelles ou par petits groupes peuvent être autorisées
+pour les besoins d’une activité liée à l’enseignement (AI , TPE … ) Des instructions précises doivent être données afin d’informer
+le chef d’établissement.\n\n
+Si le lieu de l’activité est à courte distance du lycée, les élèves pourront accomplir seuls ces déplacements, en se rendant
+directement à destination et en regagnant de la même façon le lycée ou leur domicile. Quel que soit le mode de transport
+retenu, chaque élève est alors responsable de lui-même.\n\n
+3.7- Dispense d’Education physique et sportive\n\n
+Toute dispense d’EPS doit être rédigée par un médecin. Le médecin scolaire se prononce sur la validité des dispenses. Les
+originaux doivent être déposés dans les plus brefs délais à l’infirmerie. Une dispense ne peut avoir d’effet rétroactif.\n\n
+3.8- Enseignement en laboratoire\n\n
+Lors des séances de disciplines scientifiques (Cours ou TP) entraînant des manipulations, les élèves devront porter
+obligatoirement une blouse de coton blanche.\n\n
+Une blouse spécifique aux manipulations de biologie moléculaire est également exigée pour les élèves de la filière du
+laboratoire.\n\n
+Les dispositifs de protection individuelle sont utilisés selon les indications des professeurs. Les équipements de protection
+individuels (E.P.I.) sont fournis par l’établissement.\n\n
+3.9- Téléphones mobiles, écouteurs mobiles, baladeurs…\n\n
+L’usage de ces appareils et assimilés est strictement interdit pendant les cours, au CDI ainsi que dans les salles de travail. Leur
+volume sonore dans les couloirs doit être limité.\n\n
+3.10- Objets et produits dangereux\n\n
+Aucun objet ou produit dangereux ne doit être introduit dans l’établissement et nul n’est autorisé à y pénétrer sous l’emprise
+de l’alcool ou de substances illicites : l’introduction et la consommation en sont interdites comme,
+conformément au décret du 12 Septembre 1977, l’usage du tabac .\n\n
+3.11- Exclusion de cours\n\n
+L’enseignant peut être amené à exclure un élève de son cours pour préserver le bon déroulement de celui-ci. Une telle mesure
+doit demeurer tout à fait exceptionnelle et donner lieu systématiquement à un rapport écrit et motivé au Conseiller Principal
+d‘Education. L’élève exclu doit être accompagné en vie scolaire. Le chef d’établissement sera tenu informé selon le cas.\n\n
+3.12- Intrusion\n\n
+L’intrusion d’une personne extérieure à l’établissement constitue un délit passible d’une amende (décret n° 96-378 du 6 mai
+1996). Tout élève qui facilite cette intrusion encourt une sanction grave.\n\n
+Titre 4 : Contrôle de l’assiduité et gestion des absences\n\n
+Les enseignants contrôlent la présence des élèves à leurs cours et saisissent les absences sur le logiciel prévu à cet effet. Le
+service de la Vie Scolaire exploite ces données et veille, en particulier , à ce que le motif de toute absence soit connu.\n\n
+Toute absence doit impérativement être justifiée :\n\n
+- soit au préalable, lorsqu’il s’agit d’une absence prévue ;\n
+- soit le jour même par téléphone, lorsqu’il s’agit d’une absence imprévue.\n\n
+Dans tous les cas, un justificatif écrit , accompagné d’un certificat médical le cas échéant , devra être déposé au bureau de la
+Vie Scolaire dès le retour. En échange de ce justificatif, l’élève se verra remettre un billet attestant qu’il a bien motivé son
+absence. Il présentera ce billet successivement à tous les enseignants dont il a manqué les cours.
+La responsabilité de l’établissement ne pourra être engagée dans un accident survenant à un élève qui aurait dû être
+normalement en cours.
+Aucun billet de retard ne sera délivré par la Vie Scolaire ,l’accueil de l’élève en classe se faisant à l’appréciation de l’enseignant
+concerné.\n\n
+Titre 5 : Mesures disciplinaires\n\n
+Tout manquement caractérisé au règlement intérieur justifie la mise en œuvre d’une procédure spécifique relevant de
+la punition scolaire ou de la sanction disciplinaire. Ces procédures s’inscrivent dans la volonté de responsabilisation et
+d’éducation citoyenne des élèves. Les sanctions ou les punitions sont graduées en fonction de la gravité du manquement à la
+règle et du fait d’indiscipline.\n\n
+5.1- Punitions\n\n
+Les punitions scolaires concernent essentiellement les manquements mineurs aux obligations des élèves et les perturbations
+de la vie de la classe ou de l’établissement. Elles sont décidées en réponse immédiate par les personnels d’éducation,
+d’enseignement ou de direction de l’établissement.\n\n
+- présentation d’excuses orales ou écrites,\n
+- devoir supplémentaire,\n
+- retenue pour un travail supplémentaire d’intérêt scolaire,\n
+- retenue pour un travail d’intérêt général,\n
+- exclusion ponctuelle d’un cours cf. 3.11\n\n
+5.2- Sanctions\n\n
+Les sanctions disciplinaires concernent les manquements graves ou répétés aux obligations des élèves et les atteintes aux
+personnes ou aux biens. Seul le chef d’établissement ou le conseil de discipline sont habilités à prononcer ces mesures dont
+l’échelle est la suivante :\n\n
+1. l’avertissement,\n\n
+2. le blâme,\n\n
+3. la mesure de responsabilisation impliquant l’élève, en dehors des heures d’enseignement, dans des activités de solidarité,
+culturelles ou de formation, à des fins éducatives dans ou à l’extérieur de l’établissement et d’une durée maximale de 20
+heures,\n\n
+4. l’exclusion temporaire de la classe pour une durée de un à huit jours (l’élève est accueilli dans l’établissement mais hors
+de sa classe),\n\n
+5. l’exclusion temporaire de l’établissement ou de ses services annexes pour une durée de huit jours maximum,
+renouvelable,\n\n
+6. l’exclusion définitive de l’établissement ou de l’un de ses services annexes. Seul le conseil de discipline est habilité à
+prononcer cette sanction.\n\n
+5.3 -Mesures d’accompagnement\n\n
+L’autorité disciplinaire peut prononcer des mesures visant à prévenir la survenance d’actes délictueux ou à en éviter la
+répétition.\n\n
+Mesure alternative aux sanctions 4 et 5 :\n\n
+Si le chef d’établissement ou le conseil de discipline le juge opportun une mesure de responsabilité peut être proposée à l’élève
+comme alternative aux sanctions 4 et 5. \n \n Elle est subordonnée à l’accord écrit de l’élève et de son représentant légal s’il est
+mineur. En cas de refus ou de renoncement en cours d’exécution de la mesure, la sanction initialement prévue s’applique.\n
+Une commission éducative peut se réunir à l’initiative du chef d’établissement.\n Elle a pour mission d’examiner la situation d’un
+élève dont le comportement est inadapté aux règles de vie de l’établissement et qui ne remplit pas ses obligations scolaires.\n
+Elle doit favoriser une réponse éducative personnalisée. \nElle assure le suivi des mesures de prévention, d’accompagnement,
+de responsabilisation et des mesures alternatives aux sanctions. \nSa composition et ses missions sont définies, sur proposition
+du chef d’établissement, par le conseil d’administration. \nElle associe, en tant que de besoin, toute personne susceptible
+d’apporter des éléments permettant d’appréhender la situation de l’élève concerné.\n\n
+CONCLUSION\n\n
+Ce règlement vise à garantir aux élèves et étudiants du Lycée Jean-Rostand les meilleures conditions de travail pour la réussite
+scolaire et la formation du citoyen.\n\n
+Ceci implique que tous les membres de la communauté scolaire en prennent connaissance, comprennent, respectent et
+appliquent les dispositions qu’il contient.\n\n
+La signature du présent document par l’élève, l’étudiant ou leur représentant légal a ainsi valeur d’adhésion." />
+        </LinearLayout>
+    </ScrollView>
+
 
     <TextView
         android:id="@+id/loginText"
-        android:onClick="retour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="146dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="144dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="@font/poppinsmedium"
+        android:onClick="retour"
         android:text="@string/retour"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        app:layout_constraintTop_toTopOf="parent"
         tools:targetApi="jelly_bean" />
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="-103dp">
-    </LinearLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
