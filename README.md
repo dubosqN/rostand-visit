@@ -14,7 +14,8 @@ Les mots de passes sont cryptés, il est donc impossible de rajouter un utilisat
 
 Set up :
 - Créer la base de données
-- Uploader les fichiers php sur votre serveur web
+- Uploader les fichiers php sur votre serveur web ```https://github.com/dubosqN/rostand-visit/tree/master/db_conn```
+- Configurer le fichier de connexion à votre base de données ```rostand-visit/db_conn/conn.php```
 - Editer le fichier de configuration des URL des fichiers d'API (ConfigUrl.java)
 - Run le projet
 
